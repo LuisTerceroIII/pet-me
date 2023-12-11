@@ -1,18 +1,21 @@
 "use client"
 
 import React from "react"
-import { useStore } from "@/store/useStore"
 import styles from "./login.module.css"
-import { Text } from "@/components"
+import { Button, Input, Logo } from "@/components"
+import { useStore } from "@/store/useStore"
+
 
 export const Login = () => {
-
-    const isLogin = useStore((state) => state.isLogin)
+    
+    const { password, email, setEmail, setPassword } = useStore()
 
     return (
         <section className={styles.mainContainer}>
-            <Text preset="headerXL" text={"Login page"} />
-            {isLogin}
+            <Logo />
+            <Input label="Email" labelPreset="bodyXL" value={email} onChange={setEmail} />
+            <Input label="Contraseña" labelPreset="bodyXL" value={password} onChange={setPassword} type="password" />
+            <Button text="Iniciar Sesion" onClick={() => window.alert(`Login, email: ${email}, pass: ${password}`)} style={{marginTop: "3%"}}/>
         </section>
     )
 }

@@ -1,0 +1,9 @@
+.button {
+    height: 48px;
+    min-width: 143px;
+    max-width: 186px;
+    border-radius: 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
