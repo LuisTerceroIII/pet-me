@@ -1,5 +1,5 @@
 import { create } from 'zustand';
-import { createClient, SupabaseClient, User } from "@supabase/supabase-js"
+import { createClient, SupabaseClient, AuthResponse } from "@supabase/supabase-js"
 import { PetitionState } from '@/types/index';
 
 
@@ -16,10 +16,11 @@ export interface AuthState {
   setPassword: (e: React.ChangeEvent<HTMLInputElement>) => void
   setName: (e: React.ChangeEvent<HTMLInputElement>) => void
   setUsername: (e: React.ChangeEvent<HTMLInputElement>) => void
-  registerUserProfileInfo: (userId: string) => Promise<void>
   setPetitionState: (petitionState: PetitionState) => void
+  signInWithEmail: () => Promise<void>
   signUpWithEmail: () => Promise<void>
   registerSubmitButtonIsEnabled: () => boolean
+  loginSubmitButtonIsEnable: () => boolean
   cleanRegisterForm: () => void
 }
 
@@ -39,6 +40,12 @@ export const useAuth = create<AuthState>((set, get, api) => ({
   password: "",
   authIsLoading: false,
   petitionState: PetitionState.IDLE,
+  loginSubmitButtonIsEnable: () => {
+    return (
+      get().email.length > 0 &&
+      get().password.length > 0
+    )
+  },
   registerSubmitButtonIsEnabled: () => {
     return (
       get().username.length > 0 &&
@@ -68,21 +75,6 @@ export const useAuth = create<AuthState>((set, get, api) => ({
       username: e?.target?.value,
     }))
   },
-  registerUserProfileInfo: async (userId) => {
-    try {
-      const { error } = await supabase
-        .from("UserProfiles")
-        .insert([
-          { id: userId, name: get()?.name || null, username: get()?.username || null }
-        ])
-        .select()
-        get()?.setPetitionState(PetitionState.SUCCESS)
-      if (error) throw new Error("error saving user profile info" + error)
-    } catch (e) {
-      console.log("error saving user profile info", JSON.stringify(e))
-      get()?.setPetitionState(PetitionState.ERROR)
-    }
-  },
   setPetitionState: (petitionState: PetitionState) => {
     set((state) => ({
       petitionState
@@ -90,24 +82,47 @@ export const useAuth = create<AuthState>((set, get, api) => ({
   },
   signUpWithEmail: async () => {
     try {
+
       get()?.setPetitionState(PetitionState.LOADING)
 
-      const { data, error } = await supabase.auth.signUp({
+      const { error } = await supabase.auth.signUp({
         email: get()?.email,
         password: get()?.password,
         options: {
-          emailRedirectTo: `/`
+          emailRedirectTo: `/`,
+          data: {
+            name: get()?.name || null, 
+            username: get()?.username || null
+          }
         },
       })
+
       if (error) throw new Error("error signing up " + error)
 
-      //@ts-ignore
-      await get()?.registerUserProfileInfo(data?.user?.id)
+      get()?.setPetitionState(PetitionState.SUCCESS)
 
     } catch (e) {
       console.log("error signing up", JSON.stringify(e))
       get()?.setPetitionState(PetitionState.ERROR)
     }
+  },
+  signInWithEmail: async () => {
+    get()?.setPetitionState(PetitionState.LOADING)
+    const { data, error } : AuthResponse = await supabase.auth.signInWithPassword({
+      email: get()?.email,
+      password: get()?.password
+    })
+    if(error) {
+      get()?.setPetitionState(PetitionState.ERROR)
+    } else {
+      set((state) => ({
+        user: data?.user
+      }))
+      get()?.setPetitionState(PetitionState.SUCCESS)
+    }
+  },
+  signOut: async () => {
+    await supabase.auth.signOut()
   },
   cleanRegisterForm: () => {
     set((state) => ({
