@@ -28,7 +28,6 @@ export default function Login() {
         <Text text="Login exitoso" preset='headerM'/>
       }
       </div>
-      {JSON.stringify(user)}
     </div>
   )
 }
