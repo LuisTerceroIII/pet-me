@@ -6,4 +6,11 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    border-style: none;
+    cursor: pointer;
+    transition-duration: .8s; 
+}
+.button:hover {
+    transform: scale(1.05);
+    transition-duration: .8s; 
 }

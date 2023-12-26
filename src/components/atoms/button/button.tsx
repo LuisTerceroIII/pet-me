@@ -12,13 +12,14 @@ export type ButtonProps = {
     color?: ColorsNames,
     textColor?: ColorsNames,
     onClick: () => void
+    disabled?: boolean
 }
 export const Button: React.FC<ButtonProps> = (props) => {
 
-    const { style, textStyle, text, preset="bodyXL", color="blue", onClick, textColor="white"} = props
+    const { style, textStyle, text, preset="bodyXL", color="blue", onClick, textColor="white", disabled=false} = props
 
     return (
-        <button style={{backgroundColor: colors[color], ...style}} className={Styles.button} onClick={onClick}>
+        <button style={{backgroundColor: colors[color], ...style}} className={Styles.button} onClick={disabled ? () => null : onClick} disabled={disabled}>
             <Text style={{color: colors[textColor], ...textStyle}} text={text} preset={preset} />
         </button>
     )
