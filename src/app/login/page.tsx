@@ -7,7 +7,7 @@ import { PetitionState } from '@/types'
 
 export default function Login() {
 
-  const { email, password, setEmail, setPassword, petitionState, signInWithEmail, cleanRegisterForm, loginSubmitButtonIsEnable, user } = useAuth()
+  const { email, password, setEmail, setPassword, petitionState, signInWithEmail, cleanRegisterForm, loginSubmitButtonIsEnable,  } = useAuth()
   const disabled = !loginSubmitButtonIsEnable()
   return (
     <div style={{display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "center", paddingTop: "10%"}}>
@@ -28,6 +28,7 @@ export default function Login() {
         <Text text="Login exitoso" preset='headerM'/>
       }
       </div>
+      
     </div>
   )
 }

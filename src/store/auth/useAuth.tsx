@@ -12,6 +12,11 @@ export interface AuthState {
   email: string
   password: string
   petitionState: PetitionState
+  //forms errors
+  nameError: boolean
+  emailError: boolean
+  usernameError: boolean
+  passwordError: boolean
   setEmail: (e: React.ChangeEvent<HTMLInputElement>) => void
   setPassword: (e: React.ChangeEvent<HTMLInputElement>) => void
   setName: (e: React.ChangeEvent<HTMLInputElement>) => void
@@ -40,6 +45,10 @@ export const useAuth = create<AuthState>((set, get, api) => ({
   password: "",
   authIsLoading: false,
   petitionState: PetitionState.IDLE,
+  nameError: false,
+  emailError: false,
+  usernameError: false,
+  passwordError: false,
   loginSubmitButtonIsEnable: () => {
     return (
       get().email.length > 0 &&
@@ -58,21 +67,25 @@ export const useAuth = create<AuthState>((set, get, api) => ({
     set((state) => ({
       ...state,
       email: e?.target?.value,
+      emailError: e?.target?.value.length === 0
     }))
   },
   setPassword: (e) => {
     set((state) => ({
       password: e?.target?.value,
+      passwordError: e?.target?.value.length === 0
     }))
   },
   setName: (e) => {
     set((state) => ({
       name: e?.target?.value,
+      nameError: e?.target?.value.length === 0
     }))
   },
   setUsername: (e) => {
     set((state) => ({
       username: e?.target?.value,
+      usernameError: e?.target?.value.length === 0
     }))
   },
   setPetitionState: (petitionState: PetitionState) => {
