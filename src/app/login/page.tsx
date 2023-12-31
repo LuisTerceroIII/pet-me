@@ -7,14 +7,15 @@ import { PetitionState } from '@/types'
 
 export default function Login() {
 
-  const { email, password, setEmail, setPassword, petitionState, signInWithEmail, cleanRegisterForm, loginSubmitButtonIsEnable,  } = useAuth()
+  const { email, password, setEmail, setPassword, petitionState, signInWithEmail, cleanRegisterForm, loginSubmitButtonIsEnable, emailError, passwordError  } = useAuth()
   const disabled = !loginSubmitButtonIsEnable()
+  
   return (
     <div style={{display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "center", paddingTop: "10%"}}>
 
       <Logo />
-      <Input label='Email' name='email' type='text' onChange={setEmail} value={email} />
-      <Input label='Contraseña' name='password' type="password" onChange={setPassword} value={password} />
+      <Input label='Email' name='email' type='text' onChange={setEmail} value={email} error={emailError} />
+      <Input label='Contraseña' name='password' type="password" onChange={setPassword} value={password} error={passwordError} onSubmit={signInWithEmail}/>
       <div style={{display: "flex", flexDirection: "row", justifyContent: "center", alignItems: "center", marginTop: "33px", gap: "10px"}}>
         {petitionState === PetitionState.IDLE ? 
         <Button onClick={signInWithEmail} text='Iniciar sesion' color='blue'/> : 

@@ -2,7 +2,6 @@ import { create } from 'zustand';
 import { createClient, SupabaseClient, AuthResponse } from "@supabase/supabase-js"
 import { PetitionState } from '@/types/index';
 
-
 export interface AuthState {
   isLogin: boolean
   user: any // You might want to replace 'any' with the actual type of your user object
@@ -120,22 +119,39 @@ export const useAuth = create<AuthState>((set, get, api) => ({
     }
   },
   signInWithEmail: async () => {
-    get()?.setPetitionState(PetitionState.LOADING)
-    const { data, error } : AuthResponse = await supabase.auth.signInWithPassword({
-      email: get()?.email,
-      password: get()?.password
-    })
-    if(error) {
-      get()?.setPetitionState(PetitionState.ERROR)
-    } else {
-      set((state) => ({
-        user: data?.user
-      }))
-      get()?.setPetitionState(PetitionState.SUCCESS)
+    try {
+      get()?.setPetitionState(PetitionState.LOADING)
+
+      const { data, error } : AuthResponse = await supabase.auth.signInWithPassword({
+        email: get()?.email,
+        password: get()?.password
+      })
+
+
+      if(error) {
+        get()?.setPetitionState(PetitionState.ERROR)
+      } else {
+        console.log("🚀 ~ file: useAuth.tsx:131 ~ signInWithEmail: ~ data:", JSON.stringify(data))
+        set((state) => ({
+          user: data?.user
+        }))
+
+        get()?.setPetitionState(PetitionState.SUCCESS)
+
+        window.location.href = "/"
+      }
+    } catch (e) {
+        console.log("error signing in", JSON.stringify(e))
     }
   },
   signOut: async () => {
-    await supabase.auth.signOut()
+    try {
+      const { error } = await supabase.auth.signOut()
+      if(error) throw new Error("error signing out " + error)
+    } catch (e) {
+      console.log("error signing out", JSON.stringify(e))
+    }
+
   },
   cleanRegisterForm: () => {
     set((state) => ({

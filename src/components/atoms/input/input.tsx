@@ -17,6 +17,7 @@ export type InputProps = {
     name?: string //use to formData type
     error?: boolean
     errorMessage?: string
+    onSubmit?: (e: any) => void
 }
 
 const MAIN_CONTAINER: CSSProperties = {
@@ -61,12 +62,12 @@ const styles = StyleSheet.create({
 
 export const Input: React.FC<InputProps> = (props) => {
 
-    const {value, onChange, label, placeHolderText, labelStyle, labelPreset="default", type="text", name, error=false, errorMessage="La entrada proporcionada no es válida." } = props
+    const {value, onChange, label, placeHolderText, labelStyle, labelPreset="default", type="text", name, error=false, errorMessage="La entrada proporcionada no es válida.", onSubmit } = props
 
     return (
         <div style={MAIN_CONTAINER} >
             <Text text={label || ""} preset={labelPreset}  style={labelStyle} />
-            <input type={type} name={name} className={css(styles.input, error && styles.error)} placeholder={placeHolderText} value={value} onChange={onChange}/>
+            <input type={type} name={name} className={css(styles.input, error && styles.error)} placeholder={placeHolderText} value={value} onChange={onChange} onSubmit={onSubmit}/>
             {error && 
                 <div style={{display: "flex", flexDirection: "row", alignItems: "center", justifyContent: "center", gap: 8}}>
                     <Icon icon="error"/>
