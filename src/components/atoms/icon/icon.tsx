@@ -26,7 +26,7 @@ export const Icon: React.FC<IconProps> = (props) => {
     }
 
     return (
-        <Touchable disabled={disabled || onClick == null} onClick={onClick} aphroditeStyles={touchableStyle}>
+        <Touchable disabled={disabled || onClick == null} onClick={onClick}>
             <Image src={icons[icon]} alt={icon} width={width} height={height}/>
         </Touchable>
     )

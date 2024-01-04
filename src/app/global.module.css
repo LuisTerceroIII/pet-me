@@ -1,0 +1,55 @@
+/* Sin variables, usando colores directamente */
+
+.color-grey {
+    color: #bdc3d9;
+}
+
+.bg-color-grey {
+    background-color: #bdc3d9;
+}
+
+.color-soft-grey {
+    color: #f0f0f7;
+}
+
+.bg-color-soft-grey {
+    background-color: #f0f0f7;
+}
+
+.color-hard-grey {
+    color: #9599A8;
+}
+
+.bg-color-hard-grey {
+    background-color: #9599A8;
+}
+
+.color-blue {
+    color: #213464;
+}
+
+.bg-color-blue {
+    background-color: #213464;
+}
+.color-soft-blue {
+    color: #403F6A;
+}
+.bg-color-soft-blue {
+    background-color: #403F6A;
+}
+
+.color-white {
+    color: #ffffff;
+}
+
+.bg-color-white {
+    background-color: #ffffff;
+}
+
+.color-error {
+    color: #EC4949;
+}
+
+.bg-color-error {
+    background-color: #EC4949;
+}

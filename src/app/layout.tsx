@@ -1,4 +1,4 @@
-import { Kanit } from 'next/font/google'
+import { Kanit, Kumbh_Sans } from 'next/font/google'
 
 export const metadata = {
   title: 'Next.js',
@@ -10,13 +10,18 @@ const kanit = Kanit({
   subsets: ["latin"]
 })
 
+const kumbhSans = Kumbh_Sans({
+  weight: ['400', '500','700', '800'],
+  subsets: ["latin"]
+})
+
 export default function RootLayout({
   children,
 }: {
   children: React.ReactNode
 }) {
   return (
-    <html lang="en" className={kanit.className}>
+    <html lang="en" className={kumbhSans.className}>
       <body>{children}</body>
     </html>
   )

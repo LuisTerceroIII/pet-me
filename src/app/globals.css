@@ -46,3 +46,14 @@ table {
 	border-collapse: collapse;
 	border-spacing: 0;
 }
+
+:root {
+	--color-grey: #bdc3d9;
+	--color-soft-grey: #f0f0f7;
+	--color-hard-grey: #9599a8;
+	--color-blue: #213464;
+	--color-soft-blue: #403F6A;
+	--color-white: #ffffff;
+	--color-error: #ec4949;
+  }
+  

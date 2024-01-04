@@ -1,6 +1,8 @@
 import { create } from 'zustand';
-import { createClient, SupabaseClient, AuthResponse } from "@supabase/supabase-js"
+import { createClient, SupabaseClient, AuthResponse, User } from "@supabase/supabase-js"
 import { PetitionState } from '@/types/index';
+import { createClientComponentClient } from '@supabase/auth-helpers-nextjs';
+import { cookies } from 'next/headers';
 
 export interface AuthState {
   isLogin: boolean
@@ -21,18 +23,14 @@ export interface AuthState {
   setName: (e: React.ChangeEvent<HTMLInputElement>) => void
   setUsername: (e: React.ChangeEvent<HTMLInputElement>) => void
   setPetitionState: (petitionState: PetitionState) => void
-  signInWithEmail: () => Promise<void>
-  signUpWithEmail: () => Promise<void>
+/*   signInWithEmail: () => Promise<void>
+  signUpWithEmail: () => Promise<void> */
   registerSubmitButtonIsEnabled: () => boolean
   loginSubmitButtonIsEnable: () => boolean
   cleanRegisterForm: () => void
+  setUser: (user: User) => void
 }
 
-const supabase: SupabaseClient = createClient(
-  //@ts-ignore
-    process.env.NEXT_PUBLIC_SUPABASE_URL,
-    process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY
-)
 
 export const useAuth = create<AuthState>((set, get, api) => ({
   isLogin: false,
@@ -92,7 +90,7 @@ export const useAuth = create<AuthState>((set, get, api) => ({
       petitionState
     }))
   },
-  signUpWithEmail: async () => {
+/*   signUpWithEmail: async () => {
     try {
 
       get()?.setPetitionState(PetitionState.LOADING)
@@ -127,18 +125,15 @@ export const useAuth = create<AuthState>((set, get, api) => ({
         password: get()?.password
       })
 
+      console.log("🚀 ~ file: useAuth.tsx:129 ~ signInWithEmail: ~ data:", JSON.stringify(data))
 
       if(error) {
         get()?.setPetitionState(PetitionState.ERROR)
       } else {
-        console.log("🚀 ~ file: useAuth.tsx:131 ~ signInWithEmail: ~ data:", JSON.stringify(data))
         set((state) => ({
           user: data?.user
         }))
-
         get()?.setPetitionState(PetitionState.SUCCESS)
-
-        window.location.href = "/"
       }
     } catch (e) {
         console.log("error signing in", JSON.stringify(e))
@@ -152,7 +147,7 @@ export const useAuth = create<AuthState>((set, get, api) => ({
       console.log("error signing out", JSON.stringify(e))
     }
 
-  },
+  }, */
   cleanRegisterForm: () => {
     set((state) => ({
       email: "",
@@ -160,6 +155,11 @@ export const useAuth = create<AuthState>((set, get, api) => ({
       name: "",
       username: "",
       petitionState: PetitionState.IDLE,
+    }))
+  },
+  setUser: (user: User) => {
+    set((state) => ({
+      user: user
     }))
   }
 })

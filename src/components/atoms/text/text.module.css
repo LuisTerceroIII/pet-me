@@ -1,0 +1,47 @@
+/* Estilo base */
+.BASE .default .headerXL .headerL .headerM .bodyXL .bodyL .errorM  {
+    font-weight: 600; /* semiBold */
+    color: #666; /* hardGrey */
+    font-size: 16px;
+    line-height: 20px;
+}
+
+/* Presets */
+.default {
+
+}
+
+.headerXL {
+    /* Utiliza el estilo base y aplica modificaciones específicas */
+    font-weight: 800; /* extraBold */
+    font-size: 26px;
+    line-height: 30px;
+}
+
+.headerL {
+    font-weight: 800;
+    font-size: 20px;
+    line-height: 24px;
+}
+
+.headerM {
+    font-weight: 700; /* bold */
+    font-size: 16px;
+    line-height: 20px;
+}
+
+.bodyXL {
+    font-size: 16px;
+    line-height: 20px;
+}
+
+.bodyL {
+    font-size: 14px;
+    line-height: 18px;
+}
+
+.errorM {
+    font-size: 16px;
+    line-height: 20px;
+    color: #ff0000; /* error color */
+}
