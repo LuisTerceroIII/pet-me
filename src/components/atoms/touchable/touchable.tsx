@@ -23,7 +23,7 @@ export const Touchable: FC<TouchableProps> = (props) => {
         }
     }
     return (
-        <div id={id} className={`${styles.pressable} ${(onClick != null || disabled) ? styles.active : null} ${classes}`} style={style} onClick={disabled ? null : handleClick}>
+        <div id={id} className={`${styles.pressable} ${(onClick != null || disabled) ? styles.active : null} ${classes}`} style={style} onClick={disabled ? undefined : handleClick}>
             {children}
         </div>
     )

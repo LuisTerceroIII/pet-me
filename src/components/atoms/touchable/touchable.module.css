@@ -1,9 +1,11 @@
 .pressable {
     cursor: pointer;
     transition: transform 0.3s;
-  }
-  
-  .pressable:active {
-    transform: scale(0.98);
-  }
+}
+.pressable:active {
+  transform: scale(0.98);
+}
+.pressable:hover {
+  transform: scale(1.01);
+}
   
