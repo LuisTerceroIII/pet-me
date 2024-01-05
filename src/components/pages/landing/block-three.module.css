@@ -1,0 +1,95 @@
+.main {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    margin-top: 100px;
+    gap: 42px;
+
+}
+.leftBox {
+    max-width: 700px;
+}
+.title {
+    font-style: normal;
+    font-weight: 800;
+    line-height: 50px;
+    font-size: 1.875rem;
+    font-size: clamp(1.875rem, -1.5261627906976742rem + 4.651162790697675vw, 3.125rem);
+    margin: 0px;
+}
+.subtitle {
+    font-style: normal;
+    font-weight: 700;
+    line-height: 51px;
+    font-size: 1.5rem;
+    font-size: clamp(1.5rem, 1.017391304347826rem + 0.6521739130434783vw, 1.8rem);
+    margin: 0px;
+}
+.mainImage {
+    width: 560px;
+    height: 373px;
+    border-radius: 34px;
+}
+
+@media (max-width: 1174px) {
+    .main {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 0px;
+        margin-top: 40px;
+    }
+    .leftBox {
+        width: fit-content;
+        gap: 0px;
+        order: 2;
+    }
+    .title {
+        font-size: 2.3125rem;
+        font-size: clamp(2.3125rem, 1.345rem + 2vw, 2.8125rem);
+        text-align: center;
+        line-height: 60px;
+        text-align: center;
+        margin-top: 20px;
+        margin-bottom: 10px;
+    }
+    .subtitle {
+        font-size: 24px;
+        font-style: normal;
+        font-weight: 600;
+        line-height: 51px;
+        margin-top: 20px;
+        text-align: center;
+        margin-top: 0px;
+    }
+    .mainImage {
+        width: 90%;
+        max-width: 600px;
+        height: auto;
+        box-shadow: none;
+        object-fit: contain;
+        margin-top: 30px;
+        order: 1;
+    }
+}
+@media (max-width:774px) {
+    .main {
+        padding: 0 20px;
+    }
+    .title {
+        font-size: 1.5rem;
+        font-size: clamp(1.5rem, 0.7934782608695652rem + 3.140096618357488vw, 2.3125rem);
+        line-height: 40px;
+    }
+    .subtitle {
+        font-size: 1rem;
+        font-size: clamp(1rem, 0.782608695652174rem + 0.966183574879227vw, 1.25rem);
+        line-height: 35px;
+    }
+    .mainImage {
+        min-width: 320px;
+    }
+}
+  

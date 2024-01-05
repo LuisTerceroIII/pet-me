@@ -1,6 +1,6 @@
 import { createServerComponentClient } from '@supabase/auth-helpers-nextjs'
 import styles from './page.module.css'
-import { BlockOne } from '@/components/index'
+import { BlockOne, BlockThree, BlockTwo } from '@/components/index'
 import { cookies } from 'next/headers'
 import "@/app/global.module.css"
 
@@ -13,6 +13,8 @@ export default async function Home() {
     return (
       <main className={styles.main}>
         <BlockOne/>
+        <BlockTwo/>
+        <BlockThree/>
       </main>
     )
 }
