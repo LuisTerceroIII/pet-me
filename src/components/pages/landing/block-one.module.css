@@ -1,0 +1,128 @@
+.main {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    gap: 42px;
+    padding: 0 50px;
+}
+.leftBox {
+    width: 637px;
+}
+.rightBox {
+    width: 640px;
+}
+.title {
+    font-size: 77px;
+    font-style: normal;
+    font-weight: 800;
+    line-height: 99px;
+    font-size: 4rem;
+    font-size: clamp(4rem, 2.391304347826087rem + 2.1739130434782608vw, 5rem);
+}
+.subtitle {
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 51px;
+    margin-top: -50px;
+    font-size: 1.5rem;
+    font-size: clamp(1.5rem, 1.017391304347826rem + 0.6521739130434783vw, 1.8rem);
+}
+.mainImage {
+    box-shadow: 26px -52px 0px -6px rgba(217,217,217,1);
+    -webkit-box-shadow: 26px -52px 0px -6px rgba(217,217,217,1);
+    -moz-box-shadow: 26px -52px 0px -6px rgba(217,217,217,1);
+    width: 560px;
+    height: 373px;
+    border-radius: 34px;
+    margin-top: 80px;
+}
+.registerButton {
+    width: 560px;
+    height: 75.294px;
+    background-color: #213464;
+    border-radius: 12px;
+    box-shadow: 0px 1px 4px 0px rgba(0, 0, 0, 0.46);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 49px
+}
+.registerButtonText {
+    text-align: center;
+    font-size: 30px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 51px; 
+    font-size: 1.5rem;
+    font-size: clamp(1.5rem, 1.017391304347826rem + 0.6521739130434783vw, 1.8rem);
+}
+.register-link{
+    text-decoration: none;
+}
+.verticalFlowButton {
+    display: none;
+}
+.horizontalFlowButton {
+    display: flex;
+}
+
+@media (max-width: 1174px) {
+    .main {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 0px;
+    }
+    .verticalFlowButton {
+        display: flex;
+        order: 3;
+        margin-top: 10px;
+        width: 100%;
+        max-width: 600px;
+    }
+    .horizontalFlowButton {
+        display: none;
+    }
+    .rightBox {
+        width: fit-content;
+        order: 1;
+        gap: 0px;
+    }
+    .leftBox {
+        width: fit-content;
+        order: 2;
+        gap: 0px;
+    }
+    .title {
+        font-size: 2.3125rem;
+        font-size: clamp(2.3125rem, 1.345rem + 2vw, 2.8125rem);
+        text-align: center;
+        line-height: 60px;
+        text-align: center;
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
+    .subtitle {
+        font-size: 24px;
+        font-style: normal;
+        font-weight: 600;
+        line-height: 51px;
+        margin-top: 20px;
+        text-align: center;
+        margin-top: 0px;
+    }
+    .registerButton {
+        margin-top: 0px;
+    }
+    .mainImage {
+        width: 100%;
+        max-width: 600px;
+        height: auto;
+        box-shadow: none;
+        object-fit: contain;
+        margin-top: 30px;
+    }
+}
+  

@@ -1,0 +1,8 @@
+.main {
+    position: absolute;
+    top: 0;
+    height: 70px;
+    display: flex;
+    flex-direction: row;
+    padding: 20px 20px 120px 20px;
+}

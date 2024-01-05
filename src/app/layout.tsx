@@ -1,3 +1,4 @@
+import { Header } from '@/components/index'
 import { Kanit, Kumbh_Sans } from 'next/font/google'
 
 export const metadata = {
@@ -22,7 +23,8 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={kumbhSans.className}>
-      <body>{children}</body>
+      <Header />
+      <body style={{paddingTop: 70}}>{children}</body>
     </html>
   )
 }
