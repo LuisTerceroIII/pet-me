@@ -16,6 +16,15 @@ const kumbhSans = Kumbh_Sans({
   subsets: ["latin"]
 })
 
+const resetStyles = {
+    margin: 0,
+    padding: 0,
+    border: 0,
+    fontSize: "100%",
+    font: "inherit",
+    verticalAlign: "baseline"
+}
+
 export default function RootLayout({
   children,
 }: {
@@ -23,8 +32,10 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={kumbhSans.className}>
-      <Header />
-      <body style={{paddingTop: 70}}>{children}</body>
+      <body style={resetStyles}>
+        <Header />
+        {children}
+      </body>
     </html>
   )
 }

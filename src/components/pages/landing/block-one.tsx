@@ -17,13 +17,13 @@ export const BlockOne = () => {
         </div>
         <div className={styles.rightBox}>
           <Image classes={styles.mainImage} src={"/landing-1.png"} alt='landing-1'/>
-          <Link href={"/register"} className={styles.horizontalFlowButton}>
+          <Link href={"/register"} className={styles.horizontalFlowButton} style={{textDecoration: "none"}}>
             <Touchable classes={styles.registerButton}>
               <Text classes={styles.registerButtonText} text='Registrarme' colorClass='COLOR_WHITE'/>
             </Touchable>
           </Link>
         </div>
-        <Link href={"/register"} className={styles.verticalFlowButton}>
+        <Link href={"/register"} className={styles.verticalFlowButton} style={{textDecoration: "none"}}>
             <Touchable classes={styles.registerButton}>
               <Text classes={styles.registerButtonText} text='Registrarme' colorClass='COLOR_WHITE'/>
             </Touchable>

@@ -4,8 +4,10 @@ export const colors = {
     hardGrey: "#9599A8",
     softBlue: "#403F6A",
     blue: "#213464",
-    white: "#ffffff",
+    white: "#e6e2e2",
     error: "#EC4949",
+    softBlueTranslucid: "#403f6ae4",
+    orange: "#f69f00"
 }
 export const colorClasses  = {
     COLOR_GREY: "color-grey",

@@ -1,0 +1,48 @@
+.main {
+    transition: all 200ms linear 50ms;
+    z-index: 10;
+    width: 400px;
+    overflow: hidden;
+    position: absolute;
+    right: 0;
+}
+.mainOpen {
+    height: 100svh;
+    width: 400px;
+    background-color: #403f6ae4;
+}
+.mainClose {
+    height: 0px;
+}
+.option {
+    color: #e6e2e2;
+    font-size: 1.5rem;
+    font-size: clamp(1.5rem, 1.017391304347826rem + 0.6521739130434783vw, 1.8rem);
+}
+.routesContainer {
+    margin-top: 100px;
+}
+
+.option::after{
+    content: "";
+    display: block;
+    position: relative;
+    width: 55%;
+    height: 5px;
+    left: 0;
+    align-self: flex-start;
+    transform: scaleX(0);
+    background-color: #f69f00;
+
+}
+.option:hover::after {
+    transform: scaleX(1);
+    transition: transform .3s ease-out;
+    transform-origin: left;
+}
+
+@media(max-width: 774px) {
+    .main, .mainOpen{
+        width: 300px;
+    }
+}

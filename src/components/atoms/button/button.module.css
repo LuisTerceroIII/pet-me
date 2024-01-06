@@ -9,6 +9,7 @@
     border-style: none;
     cursor: pointer;
     transition-duration: .8s; 
+    color: #e6e2e2;
 }
 .button:hover {
     transform: scale(1.05);
