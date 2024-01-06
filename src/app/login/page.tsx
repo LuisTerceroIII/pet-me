@@ -39,7 +39,6 @@ export default function Login() {
 
 return (
   <div style={{ display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "center", paddingTop: "10%" }}>
-    <Logo />
     <Input label='Email' name='email' type='text' onChange={setEmail} value={email} error={emailError} />
     <Input label='Contraseña' name='password' type="password" onChange={setPassword} value={password} error={passwordError} onSubmit={handleSubmit} />
     <div style={{ display: "flex", flexDirection: "row", justifyContent: "center", alignItems: "center", marginTop: "33px", gap: "10px" }}>

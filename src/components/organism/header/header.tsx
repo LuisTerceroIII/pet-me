@@ -20,8 +20,8 @@ export const Header = () => {
     return (
       <header className={styles.main}>
           <GeneralMenu/>
-          <Logo vertical={false} classes={styles.logo}/>
-          <div style={{position: "absolute", right: 12, zIndex: 11}} onBlur={close}>
+          <Logo vertical={true} classes={styles.logo}/>
+          <div style={{position: "absolute", right: 16, zIndex: 11, top: 12}} onBlur={close}>
             <Hamburger onToggle={setOpen} toggled={isOpen}/>
           </div>
       </header>

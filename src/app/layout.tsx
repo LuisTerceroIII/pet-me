@@ -1,5 +1,6 @@
 import { Header, Footer } from '@/components/index'
 import { Kanit, Kumbh_Sans } from 'next/font/google'
+import { CSSProperties } from 'react'
 
 export const metadata = {
   title: 'Next.js',
@@ -16,13 +17,17 @@ const kumbhSans = Kumbh_Sans({
   subsets: ["latin"]
 })
 
-const resetStyles = {
+const resetStyles: CSSProperties = {
     margin: 0,
     padding: 0,
     border: 0,
     fontSize: "100%",
     font: "inherit",
-    verticalAlign: "baseline"
+    verticalAlign: "baseline",
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "space-between",
+    height: "100svh"
 }
 
 export default function RootLayout({

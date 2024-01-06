@@ -5,7 +5,6 @@
     align-items: center;
     margin-top: 100px;
     gap: 42px;
-
 }
 .leftBox {
     max-width: 700px;
@@ -24,7 +23,7 @@
     line-height: 51px;
     font-size: 1.5rem;
     font-size: clamp(1.5rem, 1.017391304347826rem + 0.6521739130434783vw, 1.8rem);
-    margin: 0px;
+    margin: 20px 0px 0px 0px;
 }
 .mainImage {
     width: 560px;

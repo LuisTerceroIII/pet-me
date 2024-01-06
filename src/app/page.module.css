@@ -1,9 +1,9 @@
 .main {
-    padding: 40px 70px 200px 70px;
+    padding: 140px 70px 200px 70px;
 }
 
 @media (max-width: 778px) {
     .main {
-        padding: 30px 20px 100px 20px;
+        padding: 110px 20px 100px 20px;
     }
 }
