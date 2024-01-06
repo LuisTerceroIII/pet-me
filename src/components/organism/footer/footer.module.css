@@ -1,0 +1,21 @@
+.main {
+    background-color: #213464;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+    padding: 16px 30px;
+}
+.text {
+    text-align: center;
+}
+.leDevLink {
+    text-decoration: none;
+    color: #e6e2e2;
+    transition: color linear 8ms;
+    margin-left: 4px;
+}
+.leDevLink:hover {
+    color: #f69f00;
+}

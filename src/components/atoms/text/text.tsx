@@ -10,13 +10,14 @@ export type TextProps = {
     colorClass?: ColorClasses
     style?: CSSProperties
     classes?: any
+    children?: any
 }
 
 export const Text: React.FC<TextProps> = (props) => {
 
-    const {text, preset="default", colorClass="COLOR_HARD_GREY", style, classes} = props
+    const {text, preset="default", colorClass="COLOR_HARD_GREY", style, classes, children} = props
 
     return (
-        <p className={`${GlobalStyles[colorClasses[colorClass]]} ${classes ? classes : Styles[preset]}`} style={style}>{text}</p>
+        <p className={`${GlobalStyles[colorClasses[colorClass]]} ${classes ? classes : Styles[preset]}`} style={style}>{text}{children}</p>
     )
 }

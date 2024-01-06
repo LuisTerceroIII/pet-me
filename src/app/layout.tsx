@@ -1,4 +1,4 @@
-import { Header } from '@/components/index'
+import { Header, Footer } from '@/components/index'
 import { Kanit, Kumbh_Sans } from 'next/font/google'
 
 export const metadata = {
@@ -35,6 +35,7 @@ export default function RootLayout({
       <body style={resetStyles}>
         <Header />
         {children}
+        <Footer />
       </body>
     </html>
   )
