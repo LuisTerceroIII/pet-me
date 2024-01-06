@@ -1,7 +1,7 @@
 import { createServerComponentClient } from '@supabase/auth-helpers-nextjs'
+import { cookies } from 'next/headers'
 import styles from './page.module.css'
 import { BlockOne, BlockThree, BlockTwo } from '@/components/index'
-import { cookies } from 'next/headers'
 import "@/app/global.module.css"
 
 export default async function Home() {

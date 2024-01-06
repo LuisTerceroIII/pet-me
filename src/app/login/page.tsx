@@ -25,6 +25,7 @@ export default function Login() {
         email,
         password
       })
+
       if (error) {
         setPetitionState(PetitionState.ERROR)
       } else {

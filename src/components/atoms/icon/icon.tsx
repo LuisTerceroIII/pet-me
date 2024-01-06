@@ -11,11 +11,12 @@ type IconProps = {
     onClick?: () => void
     width?: number
     height?: number
+    classes?: string
 }
 
 export const Icon: React.FC<IconProps> = (props) => {
 
-    const { disabled, onClick, icon, containerStyle={container: {}}, width=20, height=20 } = props
+    const { disabled, onClick, icon, containerStyle={container: {}}, width=20, height=20, classes } = props
 
     const touchableStyle = {
         container : {
@@ -26,7 +27,7 @@ export const Icon: React.FC<IconProps> = (props) => {
     }
 
     return (
-        <Touchable disabled={disabled || onClick == null} onClick={onClick}>
+        <Touchable disabled={disabled || onClick == null} onClick={onClick} classes={classes}>
             <Image src={icons[icon]} alt={icon} width={width} height={height}/>
         </Touchable>
     )

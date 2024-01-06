@@ -25,6 +25,7 @@ export interface AuthState {
     loginSubmitButtonIsEnable: () => boolean
     cleanRegisterForm: () => void
     setUser: (user: User) => void
+    isLogged: () => boolean
 }
 
 
@@ -42,6 +43,9 @@ export const useAuth = create<AuthState>((set, get, api) => ({
     emailError: false,
     usernameError: false,
     passwordError: false,
+    isLogged: () => {
+      return get()?.user?.role === "authenticated"
+    },
     loginSubmitButtonIsEnable: () => {
       return (
         get().email.length > 0 &&
