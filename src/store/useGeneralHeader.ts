@@ -21,7 +21,6 @@ export const useGeneralHeader = create<GeneralHeaderState>((set, get, api) => ({
         })
     },
     setOpen: (toggle: boolean) => {
-        console.log({toggle})
         set({
             isOpen: toggle
         })

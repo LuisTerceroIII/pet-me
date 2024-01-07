@@ -14,8 +14,6 @@ export const UserProdileImage = () => {
     
     const hasPhotoURL = user?.user_metadata.profile_image_url != null || photo?.length > 0
     const photoUrl = photo || user?.user_metadata.profile_image_url
-    console.log("🚀 ~ user?.user_metadata.profile_image_url:",  user?.user_metadata.profile_image_url)
-    console.log("🚀 photo:", photo)
 
     const supabase = createClientComponentClient()
 
