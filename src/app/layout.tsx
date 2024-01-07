@@ -27,7 +27,7 @@ const resetStyles: CSSProperties = {
     display: "flex",
     flexDirection: "column",
     justifyContent: "space-between",
-    height: "100svh"
+    height: "100vh"
 }
 
 export default function RootLayout({

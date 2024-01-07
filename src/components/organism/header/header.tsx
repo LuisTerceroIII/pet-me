@@ -6,6 +6,7 @@ import { Sling as Hamburger } from 'hamburger-react'
 import { useGeneralHeader } from '@/store/useGeneralHeader'
 import { GeneralMenu } from './general-menu/general-menu'
 import { usePathname } from 'next/navigation'
+import { colors } from '@/lib'
 
 export const Header = () => {
 
@@ -23,7 +24,7 @@ export const Header = () => {
           <GeneralMenu/>
           <Logo vertical={true} classes={styles.logo}/>
           <div style={{position: "absolute", right: 16, zIndex: 11, top: 12}} onBlur={close}>
-            <Hamburger onToggle={setOpen} toggled={isOpen}/>
+            <Hamburger onToggle={setOpen} toggled={isOpen} color={isOpen ? colors.white : colors.blue}/>
           </div>
       </header>
     )

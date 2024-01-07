@@ -21,7 +21,7 @@ export const presets = {
     headerM: { ...BASE, ...fontWeights.bold, fontSize: "16px", lineHeight: "20px" } as any,
     bodyXL: { ...BASE, fontSize: "16px", lineHeight: "20px" } as any,
     bodyL: { ...BASE, fontSize: "14px", lineHeight: "18px" } as any,
-    errorM: { ...BASE, fontSize: "16px",lineHeight: "20px", color: colors.error } as any
+    errorM: { ...BASE, fontSize: "20px",lineHeight: "20px", color: colors.error } as any
 } 
 
 export type TextPresets = keyof typeof presets
