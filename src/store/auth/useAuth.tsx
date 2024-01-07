@@ -4,7 +4,7 @@ import { PetitionState } from '@/types/index';
 
 export interface AuthState {
     isLogin: boolean
-    user: any // You might want to replace 'any' with the actual type of your user object
+    user: User // You might want to replace 'any' with the actual type of your user object
     authToken: string | null
     username: string
     name: string
@@ -97,6 +97,10 @@ export const useAuth = create<AuthState>((set, get, api) => ({
         name: "",
         username: "",
         petitionState: PetitionState.IDLE,
+        nameError: false,
+        emailError: false,
+        usernameError: false,
+        passwordError: false
       }))
     },
     setUser: (user: User) => {

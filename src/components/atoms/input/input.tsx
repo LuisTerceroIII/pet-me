@@ -53,6 +53,9 @@ const styles = StyleSheet.create({
         ":active": {
             transform: "scale(0.98)",
         },
+        "@media(max-width:758px)" : {
+            minWidth: '300px',
+        }
         
     },
     error: {
