@@ -39,6 +39,7 @@ export const RegisterButton: FC<RegisterButtonProps> = (props) => {
 
           setPetitionState(PetitionState.SUCCESS)
           router.refresh()
+          router.push("/")
 
       } catch (e) {
           console.log("error signing up", JSON.stringify(e))
