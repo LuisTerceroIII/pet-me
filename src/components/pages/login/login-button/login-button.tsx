@@ -36,7 +36,7 @@ export const LoginButton: FC<LoginButtonProps> = (props) => {
             setPetitionState(PetitionState.SUCCESS)
             cleanRegisterForm()
             router.refresh()
-            router.push("/")
+            router.push("/my-profile")
           }
 
         } catch (e) {

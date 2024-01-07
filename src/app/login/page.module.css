@@ -46,13 +46,14 @@
 @media (max-width: 1174px) {
     .messageAndFormContainer {
         gap: 0px;
+        margin-top: 55px;
+
     }
 
 }
 @media (max-width: 1000px) {
     .messageAndFormContainer {
         gap: 0px;
-        margin: 0;
     }
     .message {
         display: none;

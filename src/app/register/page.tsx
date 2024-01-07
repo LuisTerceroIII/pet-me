@@ -19,7 +19,7 @@ export default function Register() {
     return (
         <section className={styles.main}>
             <div className={styles.messageAndFormContainer}>
-                <Text text={text} classes={styles.message}/>
+                <Text text={text} classes={styles.message} colorClass='COLOR_BLUE'/>
                 <div className={styles.formContainer}>
                     <Text text='Registrate' colorClass='COLOR_BLUE' classes={styles.title}/>
                     <Input label='Nombre' name='name' type='text' onChange={setName} value={name} error={nameError} />

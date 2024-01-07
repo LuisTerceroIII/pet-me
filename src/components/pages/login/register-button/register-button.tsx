@@ -30,7 +30,9 @@ export const RegisterButton: FC<RegisterButtonProps> = (props) => {
                   emailRedirectTo: `${location.origin}/auth/callback`,
                   data: {
                       name: name || null,
-                      username: username || null
+                      last_name: null,
+                      username: username || null,
+                      profile_image_url: null,
                   }
               },
           })
@@ -38,8 +40,8 @@ export const RegisterButton: FC<RegisterButtonProps> = (props) => {
           if (error) throw new Error("error signing up " + error)
 
           setPetitionState(PetitionState.SUCCESS)
+          router.push("/my-profile")
           router.refresh()
-          router.push("/")
 
       } catch (e) {
           console.log("error signing up", JSON.stringify(e))

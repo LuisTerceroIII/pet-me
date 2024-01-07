@@ -10,7 +10,7 @@ export const UserBadge = () => {
 
     const { isLogged } = useAuth()
     const router = useRouter()
-    const goToProfile = () => router.push("/profile")
+    const goToProfile = () => router.push("/my-profile")
     const goToLogin = () => router.push("/login")
 
     return (
