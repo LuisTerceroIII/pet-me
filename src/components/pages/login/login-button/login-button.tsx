@@ -60,7 +60,7 @@ export const LoginButton: FC<LoginButtonProps> = (props) => {
 
                 <div style={{ display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "center" }}>
                     <Text text='Hubo un error' colorClass='COLOR_ERROR' />
-                    <Button onClick={cleanRegisterForm} text='Reintentar' color='blue' disabled={disabled} />
+                    <Button onClick={handleSubmit} text='Reintentar' color='blue' disabled={disabled} />
                 </div> :
                 
             <Text text="Login exitoso" preset='headerM' />

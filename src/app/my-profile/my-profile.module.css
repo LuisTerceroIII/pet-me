@@ -4,7 +4,8 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin-top: -200px;
+    width: 100%;
+    padding-bottom: 100px;
 }
 .title {
     font-weight: 500;
@@ -16,5 +17,15 @@
     display: flex;
     flex-direction: row;
     gap: 35px;
+}
 
+@media(max-width: 900px) {
+    .main {
+        margin-top: 200px;
+    }
+    .userInfoContainer {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
 }
