@@ -4,11 +4,17 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding: -20px 40px 0px 40px;
+    margin-top: -200px;
 }
 .title {
     font-weight: 500;
     line-height: 10px;
     font-size: 1.875rem;
     font-size: clamp(1.875rem, -1.5261627906976742rem + 4.651162790697675vw, 3.125rem);
+}
+.userInfoContainer{
+    display: flex;
+    flex-direction: row;
+    gap: 35px;
+
 }

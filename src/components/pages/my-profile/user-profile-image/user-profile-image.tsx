@@ -6,14 +6,14 @@ import React, { ChangeEvent, useState } from 'react'
 import styles from "./user-profile-image.module.css"
 import { PetitionState } from '@/types'
 
-export const UserProdileImage = () => {
+export const UserProfileImage = () => {
 
     const { setUser, petitionState, setPetitionState } = useAuth()
     const { user } = useAuth(state => ({user: state.user})) 
     const [photo, setPhoto] = useState("")
     
-    const hasPhotoURL = user?.user_metadata.profile_image_url != null || photo?.length > 0
-    const photoUrl = photo || user?.user_metadata.profile_image_url
+    const hasPhotoURL = user?.user_metadata?.profile_image_url != null || photo?.length > 0
+    const photoUrl = photo || user?.user_metadata?.profile_image_url
 
     const supabase = createClientComponentClient()
 
@@ -58,7 +58,7 @@ export const UserProdileImage = () => {
     return (
         <>
             <input id="profile-photo" name="profile-photo" type="file" onChange={updateUserPhoto} hidden/>
-            <label className={styles.main} for="profile-photo">
+            <label className={styles.main} htmlFor="profile-photo">
                 {(hasPhotoURL && petitionState !== PetitionState.LOADING) ? 
                     <Image src={photoUrl} alt={user?.user_metadata?.name} classes={styles?.photo} key={photo} /> :
                     petitionState === PetitionState.LOADING ? <Loader /> : <Icon icon="userHolder" classes={styles.icon} width={100} height={100}/>
