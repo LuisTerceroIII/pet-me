@@ -14,6 +14,6 @@ export const UserBadge = () => {
     const goToLogin = () => router.push("/login")
 
     return (
-            <Icon icon='userHolder'width={43} height={43} classes={styles.main} onClick={isLogged() ? goToProfile :  goToLogin}/>
+            <Icon icon='userHolder'width={43} height={43} classes={styles.main} onClick={isLogged() ? goToProfile :  goToLogin} containerStyle={{width: 43, height: 43}}/>
     )
 }

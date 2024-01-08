@@ -1,7 +1,17 @@
+import { create } from 'zustand';
 
-export const usePet = (set) => ({
-    bears: 0,
-    addBear: () => set((state) => ({ bears: state.bears + 1 })),
-    eatFish: () => set((state) => ({ fishes: state.fishes - 1 })),
-  })
-  
+export interface usePetState {
+	actionPet: any
+	setActionPet: (pet: any) => void
+}
+
+
+export const usePet = create<usePetState>((set, get, api) => ({
+	actionPet: null,
+	setActionPet: (pet: any) => {
+		set({
+			actionPet: pet
+		})
+	}
+})
+)

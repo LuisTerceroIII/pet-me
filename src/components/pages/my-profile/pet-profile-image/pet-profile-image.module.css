@@ -1,0 +1,31 @@
+.main {
+    width: 300px;
+    height: 350px;
+    flex-shrink: 0;
+    border-radius: 34px;
+    background-color: #e6e2e2;
+    cursor: pointer;
+    transition: transform 0.3s;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: -1px 1px 5px -1px rgba(0,0,0,0.69);
+    -webkit-box-shadow: -1px 1px 5px -1px rgba(0,0,0,0.69);
+    -moz-box-shadow: -1px 1px 5px -1px rgba(0,0,0,0.69);
+}
+.main:active {
+  transform: scale(0.98);
+}
+.photo {
+    object-fit: cover;
+    width: 300px;
+    height: 350px;
+    border-radius: 34px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.icon {
+    width: 50px;
+    height: 50px;
+}

@@ -6,6 +6,7 @@ import { createClientComponentClient } from '@supabase/auth-helpers-nextjs'
 import { useAuth } from '@/store/auth/useAuth'
 import { age, colors } from '@/lib'
 import { useRouter } from 'next/navigation'
+import { usePet } from '@/store/actors/usePet'
 
 type UserPetsListProps = {
     classes?: string
@@ -20,6 +21,7 @@ export const UserPetsList: FC<UserPetsListProps> = (props) => {
     const { classes } = props
     const [pets, setPets] = useState<any>([])
     const { user } = useAuth()
+    const { setActionPet } = usePet()
     const supabase = createClientComponentClient()
     const router = useRouter()
 
@@ -39,15 +41,20 @@ export const UserPetsList: FC<UserPetsListProps> = (props) => {
             const hasPhoto = pet?.profile_image_url != null
             const isLast = index === pets?.length - 1
 
+            const goToPetProfile = () => {
+                setActionPet(pet)
+                router.push(`my-profile/pet/${pet?.id}`)
+            }
+
             return (
-                <div className={styles.petRow} style={!isLast ? separator : undefined}>
+                <Touchable classes={styles.petRow} style={!isLast ? separator : undefined} onClick={goToPetProfile}>
                     <Text text={String(index + 1)} classes={styles.petNumber} colorClass='COLOR_BLUE'/>
                     {hasPhoto ? <Image src={pet.profile_image_url} classes={styles.petPhoto} alt={pet?.name}/> :
                         <Icon classes={styles.iconContainer} icon="petHolder"/>
                     }
                     <Text text={pet?.name} classes={styles.petNumber} colorClass='COLOR_BLUE'/>
                     <Text text={"Edad: "} classes={styles.petNumber} colorClass='COLOR_HARD_GREY' children={<Text text={age(new Date(pet?.date_birth))} classes={styles.petNumber} colorClass='COLOR_HARD_GREY'/>}/>
-                </div>
+                </Touchable>
             )
         } )
     }, [pets?.length])

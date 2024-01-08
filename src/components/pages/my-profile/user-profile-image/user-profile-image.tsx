@@ -61,7 +61,7 @@ export const UserProfileImage = () => {
             <label className={styles.main} htmlFor="profile-photo">
                 {(hasPhotoURL && petitionState !== PetitionState.LOADING) ? 
                     <Image src={photoUrl} alt={user?.user_metadata?.name} classes={styles?.photo} key={photo} /> :
-                    petitionState === PetitionState.LOADING ? <Loader /> : <Icon icon="userHolder" classes={styles.icon} width={100} height={100}/>
+                    petitionState === PetitionState.LOADING ? <Loader /> : <Icon icon="userHolder" classes={styles.icon} width={100} height={100} containerStyle={{width: 100, height: 100}}/>
                 }
             </label>
         </>
