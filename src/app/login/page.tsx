@@ -18,7 +18,7 @@ export default function Login() {
     return (
       <section className={styles.main}>
         <div className={styles.messageAndFormContainer}>
-          <Text text={text} classes={styles.message}/>
+          <Text text={text} classes={styles.message} colorClass='COLOR_BLUE'/>
           <div className={styles.formContainer}>
             <Text text='Iniciar sesión' colorClass='COLOR_BLUE' classes={styles.title}/>
             <Input label='Email' name='email' type='text' onChange={setEmail} value={email} error={emailError} />

@@ -1,5 +1,5 @@
 'use client'
-import { Text, UserMainInfo } from '@/components'
+import { UserMainInfo, UserPetsList } from '@/components'
 import { UserProfileImage } from '@/components/index'
 import styles from "./my-profile.module.css"
 
@@ -11,6 +11,7 @@ export default function UserProfile() {
                 <UserProfileImage/>
                 <UserMainInfo/>
             </div>
+            <UserPetsList/>
         </section>
     )
 }

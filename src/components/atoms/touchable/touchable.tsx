@@ -5,7 +5,6 @@ import styles from "./touchable.module.css"
 interface TouchableProps {
     children: ReactNode
     onClick?: () => void
-    aphroditeStyles?: {container: StyleDeclaration}
     style?: React.CSSProperties
     disabled?: boolean
     id?: string
@@ -14,7 +13,7 @@ interface TouchableProps {
 
 export const Touchable: FC<TouchableProps> = (props) => {
 
-    const { children, onClick, aphroditeStyles, style, disabled=onClick==null, id, classes } = props
+    const { children, onClick, style, disabled=onClick==null, id, classes } = props
 
 
     const handleClick = () => {

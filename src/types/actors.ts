@@ -4,12 +4,11 @@ import { Image } from "./multimedia"
 export type Actor = {
     id: string,
     name: string,
-    register_at: Date,
-    image?: Image
+    created_at: Date,
+    //image?: Image
 }
 export type Person = Actor & {
     lastName: string,
-    created_at: Date,
     email: string,
 }
 export type Pet = Actor & {
